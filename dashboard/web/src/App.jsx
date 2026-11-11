@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { postLabel, useApi } from "./api.js";
+import { useCallback, useState } from "react";
+import { postLabel, RefreshContext, useApi } from "./api.js";
 import GoldenSet from "./GoldenSet.jsx";
-import { IngestControl, OpenPostButton, ProposalPanel } from "./Actions.jsx";
+import { IngestControl, OpenPostButton, PipelineProvider, ProposalPanel, UpdateButton } from "./Actions.jsx";
 import { FIELDS } from "./fieldHelp.js";
 import {
   CategoryChip, ClassificationExplain, ComplexityTag, FieldGuide, HelpButton, RatingExplain, RelevanceMeter,
@@ -22,7 +22,7 @@ const FIELD_NAMES = {
 };
 const STATUS_TONE = {
   ok: "good", permitido: "good", parcial: "warn", en_curso: "warn", pendiente: "warn",
-  bloqueada: "bad", cambio_estructura: "bad", prohibido: "bad",
+  bloqueada: "bad", cambio_estructura: "bad", prohibido: "bad", interrumpida: "bad",
 };
 
 const number = (value, digits = 0) =>
@@ -294,7 +294,7 @@ function Inbox() {
           <input type="date" value={filters.posted_since} onChange={set("posted_since")} />
         </label>
       </form>
-      <Loader query={query} empty={(d) => d.total === 0 && "No hay proyectos con estos filtros. Si no has lanzado ninguna ingesta, ejecuta: python -m scripts.ingest freelancer"}>
+      <Loader query={query} empty={(d) => d.total === 0 && "No hay proyectos con estos filtros. Si aún no has buscado ninguno, pulsa Actualizar arriba a la derecha."}>
         {(d) => (
           <>
             <p className="muted">
@@ -334,7 +334,7 @@ function Runs() {
   const query = useApi("/api/runs");
   return (
     <>
-    <IngestControl onFinished={query.reload} />
+    <IngestControl />
     <Loader query={query} empty={(d) => d.length === 0 && "Aún no hay corridas. Usa el botón de arriba para lanzar la primera."}>
       {(rows) => (
         <Table head={["Corrida", "Fuente", "Perfil", "Modo", "Estado", "Inicio", "Duración (s)", "Páginas", "Ítems", "Cobertura", "Costo USD", "Errores", "Detalle"]}>
@@ -433,11 +433,17 @@ const VIEWS = { inbox: Inbox, runs: Runs, sources: Sources, quality: Quality, co
 
 export default function App() {
   const [tab, setTab] = useState("inbox");
+  const [refresh, setRefresh] = useState(0);
+  const reloadAll = useCallback(() => setRefresh((n) => n + 1), []);
   const View = VIEWS[tab];
   return (
-    <>
+    <RefreshContext.Provider value={refresh}>
+    <PipelineProvider onFinished={reloadAll}>
       <header>
-        <h1>Dashboard de validación</h1>
+        <div className="header-top">
+          <h1>Dashboard de validación</h1>
+          <UpdateButton />
+        </div>
         <nav aria-label="Vistas">
           {TABS.map(([id, label]) => (
             <button key={id} className={id === tab ? "active" : ""} aria-current={id === tab ? "page" : undefined} onClick={() => setTab(id)}>{label}</button>
@@ -445,6 +451,7 @@ export default function App() {
         </nav>
       </header>
       <main><View /></main>
-    </>
+    </PipelineProvider>
+    </RefreshContext.Provider>
   );
 }

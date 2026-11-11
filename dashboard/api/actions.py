@@ -14,6 +14,7 @@ from pydantic import BaseModel
 
 from dashboard.api.deps import Reader, Writer, require_local_origin
 from scripts import budget
+from scripts.agent_runner import load_pipeline_config
 from scripts.db import ROOT, AlreadyRunning, pipeline_lock
 from scripts.ingest import CONNECTORS, coverage
 
@@ -21,6 +22,7 @@ router = APIRouter()
 LOG_DIR = ROOT / "data" / "logs"
 # Se sustituye en los tests para no lanzar procesos reales.
 start_process = subprocess.Popen
+BREAKAWAY = getattr(subprocess, "CREATE_BREAKAWAY_FROM_JOB", 0)
 
 
 def lock_is_free(conn, name: str) -> bool:
@@ -38,9 +40,15 @@ def pipeline_status(conn: Reader) -> dict:
         """SELECT r.id, r.status, r.mode, r.started_at, r.finished_at, r.items, r.query_stats, s.name AS source
            FROM runs r JOIN sources s ON s.id = r.source_id ORDER BY r.id DESC LIMIT 1"""
     ).fetchone()
+    running = not lock_is_free(conn, "pipeline")
     if last:
         last["coverage"] = coverage(last.pop("query_stats"))
-    return {"running": not lock_is_free(conn, "pipeline"), "last_run": last}
+        # Sin bloqueo nadie la esta ejecutando: el proceso murio. La proxima ingesta la cierra en la base.
+        if last["status"] == "en_curso" and not running:
+            last["status"] = "interrumpida"
+    every = load_pipeline_config().get("auto_update_every_hours")
+    return {"running": running, "last_run": last,
+            "auto_update_every_hours": every if isinstance(every, (int, float)) and every > 0 else None}
 
 
 class RunIn(BaseModel):
@@ -61,9 +69,15 @@ def pipeline_run(body: RunIn, conn: Reader) -> dict:
     log_path = LOG_DIR / f"pipeline-{datetime.now():%Y%m%d-%H%M%S}.log"
     args = [sys.executable, "-m", "scripts.pipeline", body.source] + (["--full"] if body.full else [])
     flags = (subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.DETACHED_PROCESS) if sys.platform == "win32" else 0
+    # -u: el log se escribe al momento y sirve aunque el proceso muera.
+    args.insert(1, "-u")
     with open(log_path, "w", encoding="utf-8") as log:
-        start_process(args, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
-                      creationflags=flags)
+        options = dict(cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
+        try:
+            # Fuera del grupo de procesos del dashboard: cerrar el dashboard no corta la actualizacion.
+            start_process(args, creationflags=flags | BREAKAWAY, **options)
+        except OSError:
+            start_process(args, creationflags=flags, **options)  # El sistema no permite separarlo.
     return {"status": "iniciada", "full": body.full, "log": log_path.name}
 
 

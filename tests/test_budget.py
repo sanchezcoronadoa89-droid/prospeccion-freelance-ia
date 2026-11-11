@@ -156,6 +156,12 @@ def test_api_lanza_la_ingesta_sin_proceso_real(api, monkeypatch, conn):
     assert response.status_code == 202 and started[0][-3:] == ["scripts.pipeline", "freelancer", "--full"]
 
 
+@pytest.mark.parametrize("value, expected", [(None, None), (6, 6), (0, None), ("diaria", None)])
+def test_estado_informa_la_frecuencia_automatica_sin_inventarla(api, monkeypatch, value, expected):
+    monkeypatch.setattr(actions, "load_pipeline_config", lambda: {"auto_update_every_hours": value})
+    assert api.get("/api/pipeline/status").json()["auto_update_every_hours"] == expected
+
+
 def test_api_no_lanza_si_ya_hay_una_en_curso(api, monkeypatch, conn):
     from scripts.db import pipeline_lock
     started = []
@@ -164,6 +170,36 @@ def test_api_no_lanza_si_ya_hay_una_en_curso(api, monkeypatch, conn):
         assert api.get("/api/pipeline/status").json()["running"] is True
         assert api.post("/api/pipeline/run", json={}).status_code == 409
     assert started == []
+
+
+def test_si_no_se_puede_separar_el_proceso_se_lanza_igual(api, monkeypatch):
+    calls = []
+
+    def fake(args, creationflags=0, **kw):
+        calls.append(creationflags)
+        if actions.BREAKAWAY and creationflags & actions.BREAKAWAY:
+            raise OSError("acceso denegado")
+
+    monkeypatch.setattr(actions, "BREAKAWAY", 0x01000000)
+    monkeypatch.setattr(actions, "start_process", fake)
+    assert api.post("/api/pipeline/run", json={}).status_code == 202
+    assert len(calls) == 2 and not calls[1] & 0x01000000
+
+
+def test_corrida_huerfana_se_muestra_y_se_cierra_como_interrumpida(api, conn):
+    from scripts.db import pipeline_lock
+    run_id = conn.execute("SELECT max(id) AS id FROM runs").fetchone()["id"]
+    conn.execute("UPDATE runs SET status = 'en_curso', finished_at = NULL WHERE id = %s", (run_id,))
+    conn.commit()
+    assert api.get("/api/pipeline/status").json()["last_run"]["status"] == "interrumpida"
+    assert api.get("/api/runs").json()[0]["status"] == "interrumpida"
+    with pipeline_lock(conn):  # Con el bloqueo tomado, la corrida esta viva de verdad.
+        assert api.get("/api/pipeline/status").json()["last_run"]["status"] == "en_curso"
+        assert api.get("/api/runs").json()[0]["status"] == "en_curso"
+        assert ingest.close_orphan_runs(conn) == 1
+    row = conn.execute("SELECT status, finished_at, errors FROM runs WHERE id = %s", (run_id,)).fetchone()
+    assert row["status"] == "interrumpida" and row["finished_at"] is not None
+    assert row["errors"][-1] == ingest.ORPHAN_NOTE
 
 
 def test_api_no_lanza_fuentes_sin_permiso(api, monkeypatch, conn):

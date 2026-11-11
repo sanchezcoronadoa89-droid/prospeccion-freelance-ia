@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useId, useRef, useState } from "react";
 import { postJson, useApi } from "./api.js";
 
 const money = (value, digits = 0) =>
@@ -21,43 +21,209 @@ export function OpenPostButton({ url, compact = false }) {
   );
 }
 
-const POLL_MS = 5000;
+const POLL_RUNNING_MS = 5000;
+// En reposo tambien se consulta: detecta corridas lanzadas desde la consola y mantiene vivo el "hace X".
+const POLL_IDLE_MS = 60000;
+const STALE_HOURS = 24;
 // Postgres devuelve las claves del JSON ordenadas alfabeticamente; se muestran en orden logico.
 const SCENARIO_ORDER = ["bajo", "medio", "alto"];
 
-/** Lanza el pipeline (ingesta, clasificacion y rating) y sigue su estado mientras corre. */
-export function IngestControl({ onFinished }) {
+const PipelineContext = createContext(null);
+const usePipeline = () => useContext(PipelineContext);
+
+const hoursSince = (value) => (Date.now() - new Date(value).getTime()) / 3_600_000;
+
+function relativeTime(value) {
+  const minutes = Math.round((Date.now() - new Date(value).getTime()) / 60000);
+  const format = new Intl.RelativeTimeFormat("es", { numeric: "auto" });
+  if (minutes < 1) return "hace un momento";
+  if (minutes < 60) return format.format(-minutes, "minute");
+  if (minutes < 48 * 60) return format.format(-Math.round(minutes / 60), "hour");
+  return format.format(-Math.round(minutes / 1440), "day");
+}
+
+// El proceso tarda unos segundos en arrancar y tomar el bloqueo: hasta verlo, el boton sigue ocupado.
+const START_GRACE_MS = 45000;
+
+function finishedMessage(run, baselineId) {
+  if (!run || (baselineId !== undefined && run.id === baselineId)) {
+    return { tone: "bad", text: "La actualización terminó sin registrar una corrida nueva. Revisa el log en data/logs." };
+  }
+  const items = `${run.items ?? 0} proyectos revisados`;
+  return run.status === "ok"
+    ? { tone: "good", text: `Listo: ${items}. La bandeja ya muestra lo nuevo.` }
+    : { tone: "warn", text: `Terminó con estado «${run.status.replaceAll("_", " ")}» (${items}). Mira Salud de ingesta.` };
+}
+
+/** Estado del pipeline compartido por el boton Actualizar y el panel de Salud de ingesta. */
+export function PipelineProvider({ onFinished, children }) {
   const status = useApi("/api/pipeline/status");
-  const [full, setFull] = useState(false);
-  const [message, setMessage] = useState(null);
   const [starting, setStarting] = useState(false);
+  const [message, setMessage] = useState(null);
+  // Lanzada desde aqui y aun sin confirmar: { since, baselineId } con la ultima corrida previa.
+  const [pending, setPending] = useState(null);
   const running = Boolean(status.data?.running);
   const wasRunning = useRef(false);
+  const baseline = useRef(undefined);
   const { reload } = status;
+  const data = status.data;
 
   useEffect(() => {
-    if (wasRunning.current && !running) onFinished?.();
-    wasRunning.current = running;
-    if (!running) return undefined;
-    const timer = setInterval(reload, POLL_MS);
-    return () => clearInterval(timer);
-  }, [running, reload, onFinished]);
+    if (!data) return;
+    const lastId = data.last_run?.id;
+    const finish = () => {
+      setMessage(finishedMessage(data.last_run, baseline.current));
+      baseline.current = undefined;
+      setPending(null);
+      onFinished?.();
+    };
+    if (data.running) {
+      setPending(null);
+    } else if (wasRunning.current) {
+      finish();
+    } else if (pending && lastId !== pending.baselineId) {
+      finish(); // Termino entre dos consultas: no llegamos a verla en curso.
+    } else if (pending && Date.now() - pending.since > START_GRACE_MS) {
+      setPending(null);
+      baseline.current = undefined;
+      setMessage({ tone: "bad", text: "La actualización no llegó a arrancar. Revisa el log en data/logs." });
+    }
+    wasRunning.current = data.running;
+  }, [data, pending, onFinished]);
 
-  async function start() {
+  const fastPoll = running || Boolean(pending);
+  useEffect(() => {
+    const timer = setInterval(reload, fastPoll ? POLL_RUNNING_MS : POLL_IDLE_MS);
+    return () => clearInterval(timer);
+  }, [fastPoll, reload]);
+
+  // Los avisos de exito se retiran solos; los errores se quedan hasta el siguiente intento.
+  useEffect(() => {
+    if (message?.tone !== "good" || fastPoll) return undefined;
+    const timer = setTimeout(() => setMessage(null), 10000);
+    return () => clearTimeout(timer);
+  }, [message, fastPoll]);
+
+  const start = useCallback(async (full = false) => {
     setStarting(true);
     setMessage(null);
+    const baselineId = data?.last_run?.id;
     try {
       await postJson("/api/pipeline/run", { full });
-      setMessage({ tone: "good", text: "Ingesta iniciada. Esta página se actualiza sola al terminar." });
+      baseline.current = baselineId;
+      setPending({ since: Date.now(), baselineId });
+      setMessage({ tone: "good", text: "Buscando proyectos nuevos. Puedes seguir trabajando: la página se actualiza sola." });
       setTimeout(reload, 1500);
     } catch (error) {
       setMessage({ tone: "bad", text: error.message });
     } finally {
       setStarting(false);
     }
+  }, [reload, data]);
+
+  const value = {
+    data, error: status.error, running: running || Boolean(pending), starting, message, start,
+  };
+  return (
+    <PipelineContext.Provider value={value}>
+      {children}
+    </PipelineContext.Provider>
+  );
+}
+
+function RefreshIcon({ spinning }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" className={spinning ? "spin" : undefined}>
+      <path d="M13.5 8A5.5 5.5 0 1 1 11.9 4.1M13.5 2v3h-3" fill="none" stroke="currentColor" strokeWidth="1.8"
+        strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Explica, sin inventar, cada cuanto se buscan proyectos solos. */
+function ScheduleInfo({ every, last }) {
+  const id = useId();
+  const popover = useRef(null);
+
+  function place(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = Math.min(340, window.innerWidth - 32);
+    const left = Math.min(Math.max(16, rect.right - width), window.innerWidth - width - 16);
+    Object.assign(popover.current.style, { top: `${rect.bottom + 8}px`, left: `${left}px`, width: `${width}px` });
   }
 
-  const last = status.data?.last_run;
+  const next = every && last ? new Date(new Date(last.started_at).getTime() + every * 3_600_000) : null;
+  return (
+    <>
+      <button type="button" className="update-info" popoverTarget={id} onClick={place}>
+        {every ? `Automática cada ${every} h` : "¿Cada cuánto se actualiza?"}
+      </button>
+      <div id={id} ref={popover} popover="auto" className="help-popover" role="dialog" aria-label="Cada cuánto se actualiza">
+        <p className="help-title">Cada cuánto se actualiza</p>
+        {every ? (
+          <>
+            <p><strong>Automáticamente cada {every} horas.</strong>
+              {next ? ` La próxima, hacia las ${next.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" })}.` : ""}</p>
+            <p>Si no quieres esperar, pulsa <strong>Actualizar</strong> y se busca al momento.</p>
+          </>
+        ) : (
+          <>
+            <p><strong>Solo cuando pulsas Actualizar.</strong> La búsqueda automática aún no está programada.</p>
+            <p className="muted">
+              Programarla necesita tu autorización y confirmar que tu permiso de Freelancer cubre el acceso
+              automatizado. Mientras tanto, conviene actualizar al menos una vez al día.
+            </p>
+          </>
+        )}
+        <p className="muted">
+          Cada actualización trae lo publicado desde la anterior, lo clasifica y lo puntúa. Tarda unos minutos y la
+          clasificación usa tu plan de Claude. La corrida completa está en Salud de ingesta.
+        </p>
+      </div>
+    </>
+  );
+}
+
+/** Llamada a la accion principal de la cabecera: buscar proyectos nuevos ahora. */
+export function UpdateButton() {
+  const { data, error, running, starting, message, start } = usePipeline();
+  const last = data?.last_run;
+  const when = last ? last.finished_at ?? last.started_at : null;
+  const failed = last && !["ok", "parcial", "en_curso"].includes(last.status);
+  const stale = !running && when && (failed || hoursSince(when) > STALE_HOURS);
+  const busy = running || starting;
+
+  let meta;
+  if (error) meta = "Sin conexión con la API";
+  else if (running) meta = "Buscando proyectos nuevos…";
+  else if (failed) meta = `Última actualización ${last.status.replaceAll("_", " ")} ${relativeTime(when)}`;
+  else if (when) meta = `Actualizado ${relativeTime(when)}`;
+  else meta = "Aún sin actualizar";
+
+  return (
+    <div className="update">
+      <div className="update-meta">
+        <span className={`update-when ${stale ? "stale" : ""}`} role="status" aria-live="polite">
+          {stale ? <span className="dot" aria-hidden="true" /> : null}{meta}
+        </span>
+        <ScheduleInfo every={data?.auto_update_every_hours} last={last} />
+      </div>
+      <button type="button" className="cta" onClick={() => start(false)} disabled={busy || Boolean(error)}
+        aria-busy={busy} title="Busca ahora en Freelancer los proyectos publicados desde la última actualización">
+        <RefreshIcon spinning={busy} />
+        {running ? "Actualizando…" : starting ? "Iniciando…" : "Actualizar"}
+      </button>
+      {message ? <p className={`update-message ${message.tone}`} role={message.tone === "bad" ? "alert" : "status"}>{message.text}</p> : null}
+    </div>
+  );
+}
+
+/** Opciones avanzadas de la ingesta, dentro de Salud de ingesta. */
+export function IngestControl() {
+  const { data: status, running, starting, start } = usePipeline();
+  const [full, setFull] = useState(false);
+
+  const last = status?.last_run;
   return (
     <section className="ingest-control" aria-label="Ejecutar ingesta">
       <div className="ingest-text">
@@ -72,17 +238,16 @@ export function IngestControl({ onFinished }) {
         </label>
       </div>
       <div className="ingest-action">
-        <button className="primary" onClick={start} disabled={running || starting}>
+        <button className="primary" onClick={() => start(full)} disabled={running || starting}>
           {running ? "Ingesta en curso…" : starting ? "Iniciando…" : "Ejecutar ingesta ahora"}
         </button>
-        <p className="muted" role="status" aria-live="polite">
+        <p className="muted">
           {running
-            ? "Se comprueba cada 5 segundos."
+            ? "Se comprueba cada 5 segundos. El progreso también se ve en el botón Actualizar."
             : last
               ? `Última: corrida #${last.id}, ${last.status}, ${last.items} proyectos.`
               : "Aún no hay corridas."}
         </p>
-        {message ? <p className={`status ${message.tone}`}>{message.text}</p> : null}
       </div>
     </section>
   );

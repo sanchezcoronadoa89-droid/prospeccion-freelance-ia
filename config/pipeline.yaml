@@ -3,3 +3,8 @@ max_cost_per_run_usd: 3.0     # La ejecucion se detiene al alcanzar el tope
 batch_size: 20
 description_max_chars: 1500
 relevance_threshold: 0.5      # Desde aqui, un proyecto pasa al rating y a las fases siguientes
+
+# Busqueda automatica. null = no programada: solo se actualiza con el boton Actualizar.
+# Cambiala a las horas reales solo cuando exista la tarea programada (specs/006-flujo-ingesta/spec.md);
+# el dashboard muestra este valor tal cual.
+auto_update_every_hours: null

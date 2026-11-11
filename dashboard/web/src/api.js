@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
+
+/** Contador global: al cambiar, todas las vistas recargan sus datos sin perder filtros. */
+export const RefreshContext = createContext(0);
 
 async function request(path, options) {
   const response = await fetch(path, options);
@@ -38,6 +41,7 @@ export function postJson(path, body = {}) {
 export function useApi(path) {
   const [state, setState] = useState({ data: null, error: null, loading: true });
   const [version, setVersion] = useState(0);
+  const refresh = useContext(RefreshContext);
 
   useEffect(() => {
     if (!path) return undefined;
@@ -49,7 +53,7 @@ export function useApi(path) {
     return () => {
       active = false;
     };
-  }, [path, version]);
+  }, [path, version, refresh]);
 
   const reload = useCallback(() => setVersion((v) => v + 1), []);
   return { ...state, reload };

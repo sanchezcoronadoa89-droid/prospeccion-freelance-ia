@@ -19,6 +19,7 @@ from pydantic import BaseModel, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from dashboard.api.deps import LOCAL_HOSTS, Reader, Writer, read_conn, require_local_origin  # noqa: F401
+from dashboard.api.actions import lock_is_free
 from dashboard.api.actions import router as actions_router
 from dashboard.api.golden import router as golden_router
 from scripts import ingest
@@ -133,8 +134,14 @@ def runs(conn: Reader, limit: Annotated[int, Query(ge=1, le=200)] = 50) -> list[
            ORDER BY r.id DESC LIMIT %s""",
         (limit,),
     ).fetchall()
+    # Con el bloqueo tomado solo la corrida en curso mas reciente esta viva; sin el, ninguna.
+    live = any(row["status"] == "en_curso" for row in rows) and not lock_is_free(conn, "pipeline")
     for row in rows:
         row["coverage"] = coverage(row["query_stats"])
+        if row["status"] == "en_curso":
+            if not live:
+                row["status"] = "interrumpida"  # Mismo criterio que /api/pipeline/status.
+            live = False
     return rows
 
 

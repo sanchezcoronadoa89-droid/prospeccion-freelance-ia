@@ -141,8 +141,27 @@ def incremental_since(conn, source_id: int, profile_id: int) -> datetime | None:
     return row["started"] - INCREMENTAL_OVERLAP if row["started"] else None
 
 
+ORPHAN_NOTE = "Proceso terminado antes de cerrar la corrida (apagado, cierre o fallo)"
+
+
+def close_orphan_runs(conn) -> int:
+    """Marca como interrumpidas las corridas que quedaron 'en_curso'.
+
+    Solo es seguro con el bloqueo del pipeline tomado: entonces ninguna otra corrida puede estar viva.
+    """
+    closed = conn.execute(
+        """UPDATE runs SET status = 'interrumpida', finished_at = now(), errors = errors || %s
+           WHERE status = 'en_curso'""",
+        (Jsonb([ORPHAN_NOTE]),),
+    ).rowcount
+    conn.commit()
+    return closed
+
+
 def run_ingest(conn, source_name, *, client=None, sources_path=SOURCES_PATH, profiles_path=PROFILES_PATH,
                snapshot_dir=SNAPSHOT_DIR, now=None, sleep=None, full=False) -> dict:
+    """Quien la llame debe tener el bloqueo del pipeline (lo hacen la CLI de ingesta y el pipeline)."""
+    close_orphan_runs(conn)
     sync_registry(conn, sources_path, profiles_path)
     source = get_source(conn, source_name)
     assert_source_allowed(source)  # Antes de cualquier acceso de red (RF-FUE-03).
