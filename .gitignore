@@ -1,0 +1,19 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Snapshots crudos: no se versionan (ver specs/000-decision-fuente.md)
+data/
+node_modules/
+dashboard/web/dist/
+
+# Archify: se versionan el diagrama (.html) y su definicion (candidate.json).
+# Los recibos de validacion y capturas contienen rutas locales del equipo.
+.archify/**/*.json
+!.archify/**/candidate.json
+.archify/**/review-*/
+.archify/**/visual-check/
+
+# Registros de ejecuciones del pipeline
+data/logs/

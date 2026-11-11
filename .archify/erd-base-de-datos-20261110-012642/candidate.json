@@ -1,0 +1,923 @@
+{
+ "schema_version": 1,
+ "diagram_type": "erd",
+ "meta": {
+  "title": "Base de datos del pipeline",
+  "locale": "es",
+  "output": ".archify/erd-base-de-datos-20261110-012642/base-de-datos.html",
+  "quality_profile": "standard"
+ },
+ "layout": {
+  "mode": "grid",
+  "gapX": 64,
+  "gapY": 34
+ },
+ "entities": [
+  {
+   "id": "sources",
+   "label": "sources",
+   "tag": "fuentes",
+   "row": 0,
+   "col": 0,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "name",
+     "type": "text",
+     "key": "uk"
+    },
+    {
+     "name": "base_url",
+     "type": "text"
+    },
+    {
+     "name": "access_mode",
+     "type": "text"
+    },
+    {
+     "name": "legal_status",
+     "type": "text"
+    },
+    {
+     "name": "terms_url",
+     "type": "text"
+    },
+    {
+     "name": "legal_notes",
+     "type": "text"
+    },
+    {
+     "name": "frequency",
+     "type": "text"
+    },
+    {
+     "name": "rate_limit_per_min",
+     "type": "integer"
+    },
+    {
+     "name": "active",
+     "type": "boolean"
+    },
+    {
+     "name": "updated_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "search_profiles",
+   "label": "search_profiles",
+   "tag": "fuentes",
+   "row": 1,
+   "col": 0,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "source_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "sources.id"
+    },
+    {
+     "name": "version",
+     "type": "integer"
+    },
+    {
+     "name": "criteria",
+     "type": "jsonb"
+    },
+    {
+     "name": "content_hash",
+     "type": "text"
+    },
+    {
+     "name": "active",
+     "type": "boolean"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "runs",
+   "label": "runs",
+   "tag": "ingesta",
+   "row": 2,
+   "col": 0,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "source_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "sources.id"
+    },
+    {
+     "name": "search_profile_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "search_profiles.id"
+    },
+    {
+     "name": "started_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "finished_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "status",
+     "type": "text"
+    },
+    {
+     "name": "pages",
+     "type": "integer"
+    },
+    {
+     "name": "items",
+     "type": "integer"
+    },
+    {
+     "name": "error_count",
+     "type": "integer"
+    },
+    {
+     "name": "errors",
+     "type": "jsonb"
+    },
+    {
+     "name": "cost_usd",
+     "type": "numeric(12,6)"
+    },
+    {
+     "name": "mode",
+     "type": "text"
+    },
+    {
+     "name": "since",
+     "type": "timestamptz"
+    },
+    {
+     "name": "query_stats",
+     "type": "jsonb"
+    }
+   ]
+  },
+  {
+   "id": "raw_snapshots",
+   "label": "raw_snapshots",
+   "tag": "ingesta",
+   "row": 3,
+   "col": 0,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "url",
+     "type": "text"
+    },
+    {
+     "name": "content_hash",
+     "type": "text"
+    },
+    {
+     "name": "file_path",
+     "type": "text"
+    },
+    {
+     "name": "captured_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "projects",
+   "label": "projects",
+   "tag": "proyectos",
+   "row": 0,
+   "col": 1,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "source_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "sources.id"
+    },
+    {
+     "name": "external_id",
+     "type": "text"
+    },
+    {
+     "name": "url",
+     "type": "text"
+    },
+    {
+     "name": "title",
+     "type": "text"
+    },
+    {
+     "name": "description",
+     "type": "text"
+    },
+    {
+     "name": "skills",
+     "type": "jsonb"
+    },
+    {
+     "name": "budget_min",
+     "type": "numeric(14,2)"
+    },
+    {
+     "name": "budget_max",
+     "type": "numeric(14,2)"
+    },
+    {
+     "name": "currency",
+     "type": "text"
+    },
+    {
+     "name": "usd_rate",
+     "type": "numeric(14,6)"
+    },
+    {
+     "name": "project_type",
+     "type": "text"
+    },
+    {
+     "name": "posted_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "bid_count",
+     "type": "integer"
+    },
+    {
+     "name": "status",
+     "type": "text"
+    },
+    {
+     "name": "client_country",
+     "type": "text"
+    },
+    {
+     "name": "client_payment_verified",
+     "type": "boolean"
+    },
+    {
+     "name": "near_duplicate_of",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "first_seen_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "last_seen_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "language",
+     "type": "text"
+    },
+    {
+     "name": "currency_country",
+     "type": "text"
+    }
+   ],
+   "width": 262
+  },
+  {
+   "id": "project_versions",
+   "label": "project_versions",
+   "tag": "proyectos",
+   "row": 1,
+   "col": 1,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "project_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "snapshot_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "raw_snapshots.id"
+    },
+    {
+     "name": "changed_fields",
+     "type": "jsonb"
+    },
+    {
+     "name": "captured_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "classifications",
+   "label": "classifications",
+   "tag": "agentes",
+   "row": 0,
+   "col": 2,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "project_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "category",
+     "type": "text"
+    },
+    {
+     "name": "subcategories",
+     "type": "jsonb"
+    },
+    {
+     "name": "language",
+     "type": "text"
+    },
+    {
+     "name": "relevance",
+     "type": "numeric(4,3)"
+    },
+    {
+     "name": "justification",
+     "type": "text"
+    },
+    {
+     "name": "needs_review",
+     "type": "boolean"
+    },
+    {
+     "name": "model",
+     "type": "text"
+    },
+    {
+     "name": "prompt_version",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "complexity",
+     "type": "text"
+    },
+    {
+     "name": "content_hash",
+     "type": "text"
+    },
+    {
+     "name": "client_country",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "id": "ratings",
+   "label": "ratings",
+   "tag": "agentes",
+   "row": 1,
+   "col": 2,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "target_type",
+     "type": "text"
+    },
+    {
+     "name": "target_id",
+     "type": "bigint"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "score",
+     "type": "numeric(5,2)"
+    },
+    {
+     "name": "breakdown",
+     "type": "jsonb"
+    },
+    {
+     "name": "rubric_version",
+     "type": "text"
+    },
+    {
+     "name": "model",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "content_hash",
+     "type": "text"
+    },
+    {
+     "name": "prompt_version",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "id": "agent_calls",
+   "label": "agent_calls",
+   "tag": "agentes",
+   "row": 2,
+   "col": 2,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "agent",
+     "type": "text"
+    },
+    {
+     "name": "model",
+     "type": "text"
+    },
+    {
+     "name": "prompt_version",
+     "type": "text"
+    },
+    {
+     "name": "input_tokens",
+     "type": "integer"
+    },
+    {
+     "name": "output_tokens",
+     "type": "integer"
+    },
+    {
+     "name": "cost_usd",
+     "type": "numeric(12,6)"
+    },
+    {
+     "name": "latency_ms",
+     "type": "integer"
+    },
+    {
+     "name": "result",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "labels",
+   "label": "labels",
+   "tag": "evaluación",
+   "row": 2,
+   "col": 1,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "project_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "field",
+     "type": "text"
+    },
+    {
+     "name": "expected_value",
+     "type": "jsonb"
+    },
+    {
+     "name": "author",
+     "type": "text"
+    },
+    {
+     "name": "dataset_split",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    },
+    {
+     "name": "golden_version",
+     "type": "text"
+    },
+    {
+     "name": "label_pass",
+     "type": "smallint"
+    }
+   ]
+  },
+  {
+   "id": "brief_analyses",
+   "label": "brief_analyses",
+   "tag": "fase 2 (vacías)",
+   "row": 0,
+   "col": 3,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "project_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "sheet",
+     "type": "jsonb"
+    },
+    {
+     "name": "questions",
+     "type": "jsonb"
+    },
+    {
+     "name": "red_flags",
+     "type": "jsonb"
+    },
+    {
+     "name": "model",
+     "type": "text"
+    },
+    {
+     "name": "prompt_version",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "profitability",
+   "label": "profitability",
+   "tag": "fase 2 (vacías)",
+   "row": 1,
+   "col": 3,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "project_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "projects.id"
+    },
+    {
+     "name": "run_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "runs.id"
+    },
+    {
+     "name": "hours_by_scenario",
+     "type": "jsonb"
+    },
+    {
+     "name": "hourly_rate",
+     "type": "numeric(12,2)"
+    },
+    {
+     "name": "commission",
+     "type": "numeric(6,4)"
+    },
+    {
+     "name": "margin_by_scenario",
+     "type": "jsonb"
+    },
+    {
+     "name": "priority",
+     "type": "numeric(6,3)"
+    },
+    {
+     "name": "params_version",
+     "type": "text"
+    },
+    {
+     "name": "model",
+     "type": "text"
+    },
+    {
+     "name": "created_at",
+     "type": "timestamptz"
+    }
+   ]
+  },
+  {
+   "id": "market_metrics",
+   "label": "market_metrics",
+   "tag": "fase 2 (vacías)",
+   "row": 2,
+   "col": 3,
+   "attributes": [
+    {
+     "name": "id",
+     "type": "bigint",
+     "key": "pk"
+    },
+    {
+     "name": "week",
+     "type": "date"
+    },
+    {
+     "name": "source_id",
+     "type": "bigint",
+     "key": "fk",
+     "references": "sources.id"
+    },
+    {
+     "name": "category",
+     "type": "text"
+    },
+    {
+     "name": "median",
+     "type": "numeric(14,2)"
+    },
+    {
+     "name": "p25",
+     "type": "numeric(14,2)"
+    },
+    {
+     "name": "p75",
+     "type": "numeric(14,2)"
+    },
+    {
+     "name": "volume",
+     "type": "integer"
+    },
+    {
+     "name": "avg_competition",
+     "type": "numeric(10,2)"
+    }
+   ],
+   "width": 248
+  }
+ ],
+ "relationships": [
+  {
+   "id": "agent_calls-run_id",
+   "from": "agent_calls",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one",
+   "toOptional": true
+  },
+  {
+   "id": "brief_analyses-project_id",
+   "from": "brief_analyses",
+   "to": "projects",
+   "label": "project_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "brief_analyses-run_id",
+   "from": "brief_analyses",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one",
+   "toOptional": true
+  },
+  {
+   "id": "classifications-project_id",
+   "from": "classifications",
+   "to": "projects",
+   "label": "project_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "classifications-run_id",
+   "from": "classifications",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one",
+   "toOptional": true
+  },
+  {
+   "id": "labels-project_id",
+   "from": "labels",
+   "to": "projects",
+   "label": "project_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "market_metrics-source_id",
+   "from": "market_metrics",
+   "to": "sources",
+   "label": "source_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "profitability-project_id",
+   "from": "profitability",
+   "to": "projects",
+   "label": "project_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "profitability-run_id",
+   "from": "profitability",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one",
+   "toOptional": true
+  },
+  {
+   "id": "project_versions-project_id",
+   "from": "project_versions",
+   "to": "projects",
+   "label": "project_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "project_versions-snapshot_id",
+   "from": "project_versions",
+   "to": "raw_snapshots",
+   "label": "snapshot_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "projects-source_id",
+   "from": "projects",
+   "to": "sources",
+   "label": "source_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "ratings-run_id",
+   "from": "ratings",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one",
+   "toOptional": true
+  },
+  {
+   "id": "raw_snapshots-run_id",
+   "from": "raw_snapshots",
+   "to": "runs",
+   "label": "run_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "runs-search_profile_id",
+   "from": "runs",
+   "to": "search_profiles",
+   "label": "search_profile_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "runs-source_id",
+   "from": "runs",
+   "to": "sources",
+   "label": "source_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  },
+  {
+   "id": "search_profiles-source_id",
+   "from": "search_profiles",
+   "to": "sources",
+   "label": "source_id",
+   "fromCardinality": "many",
+   "toCardinality": "one"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "cyan",
+   "title": "Cómo se lee",
+   "items": [
+    "Cada dominio ocupa un bloque: fuentes e ingesta, proyectos y evaluación, agentes y fase 2.",
+    "Las relaciones van del hijo a la tabla que referencia; una línea opcional es una clave que puede quedar vacía."
+   ]
+  },
+  {
+   "dot": "amber",
+   "title": "Claves sin línea",
+   "items": [
+    "ratings.target_id apunta a projects o a sources según target_type, sin clave foránea.",
+    "projects.near_duplicate_of apunta a otro proyecto de la misma tabla (casi duplicado).",
+    "projects es única por source_id + external_id."
+   ]
+  },
+  {
+   "dot": "emerald",
+   "title": "Trazabilidad",
+   "items": [
+    "Cada resultado de agente guarda corrida, modelo y versión de prompt o rúbrica.",
+    "labels separa auditoría y golden set con golden_version y label_pass."
+   ]
+  },
+  {
+   "dot": "slate",
+   "title": "Fase 2",
+   "items": [
+    "brief_analyses, profitability y market_metrics existen pero siguen vacías."
+   ]
+  }
+ ]
+}

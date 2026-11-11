@@ -1,0 +1,30 @@
+# Parametros del presupuestador (RF-REN-01, 02 y 04). TODO calculo se hace en codigo con estos valores.
+#
+# ATENCION: valores de EJEMPLO. Cambia calibrated a true cuando pongas tu tarifa, la comision real
+# y tus horas. Mientras sea false, el dashboard avisa de que el presupuesto no es fiable.
+version: presupuesto-v1
+calibrated: false
+hourly_rate_usd: 25          # EJEMPLO: tu tarifa interna por hora, en USD
+commission: 0.10             # EJEMPLO: comision de Freelancer; confirmala en tu cuenta
+hours_per_day: 5             # Horas productivas por dia, para estimar el plazo de entrega
+
+# Horas por unidad en tres escenarios (bajo, medio, alto). La IA solo elige tipo y unidades.
+tasks:
+  ga4_setup:           { label: "Configurar GA4 y eventos",               unit: "propiedad", hours: [3, 5, 8] }
+  conversiones_gtm:    { label: "Tag Manager y conversiones",             unit: "plataforma", hours: [2, 4, 6] }
+  panel_looker:        { label: "Panel en Looker Studio",                 unit: "panel", hours: [4, 8, 14] }
+  auditoria_seo:       { label: "Auditoría SEO",                          unit: "sitio", hours: [4, 8, 14] }
+  seo_onpage:          { label: "SEO on-page",                            unit: "página", hours: [0.5, 1, 2] }
+  keyword_research:    { label: "Investigación de palabras clave",        unit: "estudio", hours: [3, 5, 8] }
+  campana_ads:         { label: "Montar campaña de Google o Meta Ads",    unit: "campaña", hours: [3, 6, 10] }
+  gestion_ads_mes:     { label: "Gestión mensual de anuncios",            unit: "mes", hours: [6, 12, 20] }
+  pieza_redes:         { label: "Pieza para redes sociales",              unit: "pieza", hours: [0.5, 1, 1.5] }
+  articulo_blog:       { label: "Artículo de blog",                       unit: "artículo", hours: [1.5, 3, 4] }
+  campana_email:       { label: "Campaña de email",                       unit: "campaña", hours: [2, 4, 6] }
+  chatbot:             { label: "Chatbot sencillo",                       unit: "chatbot", hours: [6, 12, 20] }
+  flujo_automatizacion: { label: "Flujo de automatización (n8n, Zapier)", unit: "flujo", hours: [2, 4, 8] }
+  landing:             { label: "Landing page",                           unit: "landing", hours: [6, 10, 16] }
+  pagina_wordpress:    { label: "Página en WordPress",                    unit: "página", hours: [2, 4, 6] }
+  tienda_shopify:      { label: "Puesta en marcha de tienda Shopify",     unit: "tienda", hours: [10, 20, 35] }
+  pantalla_ux:         { label: "Wireframe o pantalla UX/UI",             unit: "pantalla", hours: [1, 2, 3] }
+  gestion_proyecto:    { label: "Reuniones y gestión del proyecto",       unit: "proyecto", hours: [2, 3, 5] }

@@ -1,0 +1,67 @@
+# Registro de fuentes (RF-FUE-01). legal_status lo cambia SOLO una persona,
+# tras revisar los terminos: ver specs/000-decision-fuente.md.
+sources:
+  - name: freelancer
+    base_url: https://www.freelancer.com
+    access_mode: api
+    legal_status: permitido
+    terms_url: https://www.freelancer.com/about/apiterms
+    legal_notes: >-
+      Permitido el 6 nov 2026 por decision del titular del proyecto, que declara
+      tener permiso para acceso automatizado y retencion de datos. Ver
+      specs/000-decision-fuente.md.
+    frequency: daily
+    rate_limit_per_min: 10
+    active: true
+  - name: workana
+    base_url: https://www.workana.com
+    access_mode: scraping
+    legal_status: prohibido
+    terms_url: https://www.workana.com/terms
+    legal_notes: Segun el PRD, sus terminos prohiben el scraping. Requiere autorizacion escrita.
+    frequency: daily
+    rate_limit_per_min: 1
+    active: false
+
+  # Candidatas anadidas el 11 nov 2026 (RF-INV-01). Ninguna tiene conector ni se consulta: una persona
+  # debe revisar sus terminos y si ofrecen API oficial antes de cambiar legal_status (RF-INV-02).
+  - name: upwork
+    base_url: https://www.upwork.com
+    access_mode: manual
+    legal_status: pendiente
+    terms_url: https://www.upwork.com/legal
+    legal_notes: >-
+      Candidata. Revisar sus terminos y si su API oficial permite este uso (se solicita acceso).
+      Su web bloquea el acceso automatizado (403 a peticiones sin navegador).
+    frequency: daily
+    rate_limit_per_min: 1
+    active: false
+  - name: peopleperhour
+    base_url: https://www.peopleperhour.com
+    access_mode: manual
+    legal_status: pendiente
+    terms_url: https://www.peopleperhour.com/static/terms
+    legal_notes: Candidata. Revisar terminos de uso y si existe API o feed oficial.
+    frequency: daily
+    rate_limit_per_min: 1
+    active: false
+  - name: guru
+    base_url: https://www.guru.com
+    access_mode: manual
+    legal_status: pendiente
+    terms_url: https://www.guru.com/terms-of-service/
+    legal_notes: Candidata. Revisar terminos de uso y si existe API o feed oficial.
+    frequency: daily
+    rate_limit_per_min: 1
+    active: false
+  - name: malt
+    base_url: https://www.malt.com
+    access_mode: manual
+    legal_status: pendiente
+    terms_url: https://www.malt.com/terms
+    legal_notes: >-
+      Candidata, fuerte en Europa (Francia, Espana, Alemania). Revisar terminos y si existe API oficial.
+      Su web bloquea el acceso automatizado (403 a peticiones sin navegador).
+    frequency: daily
+    rate_limit_per_min: 1
+    active: false

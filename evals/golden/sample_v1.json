@@ -1,0 +1,1208 @@
+{
+ "version": "v1",
+ "seed": 20261106,
+ "rubric": "rubrica_v1.md",
+ "min_days_between_passes": 7,
+ "items": [
+  {
+   "source": "freelancer",
+   "external_id": "40798684",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805044",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805469",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803575",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799275",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802369",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804131",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798260",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798250",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803157",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801630",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802365",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805025",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806090",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803022",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805024",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803494",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801439",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804706",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804647",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806057",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805199",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804898",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803314",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804169",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806313",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805780",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804148",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804396",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803350",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803163",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799801",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804565",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799185",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806302",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805195",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798492",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804256",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805513",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804005",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803255",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803798",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40796774",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804728",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804494",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798196",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799845",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804094",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802419",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805615",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802688",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801069",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802181",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805135",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803618",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806148",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804328",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802562",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802686",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799331",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804808",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804093",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805401",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803884",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804926",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803034",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804535",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802831",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803775",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804896",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805134",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804789",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804027",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804435",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804964",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805485",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803513",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804182",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803803",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799079",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803698",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797890",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802040",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799158",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803447",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804136",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804627",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798425",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804588",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798280",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "39802621",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804244",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804795",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802787",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803260",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802806",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805377",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797493",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803467",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802902",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797195",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803809",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806139",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802609",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803298",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805205",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799316",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805743",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801483",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806372",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805559",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804372",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805066",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804561",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804780",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805704",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799744",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802687",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806178",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800586",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806345",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798463",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803099",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802547",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799244",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804110",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801766",
+   "stratum": "idioma_pt",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805368",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804823",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801700",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799707",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803327",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803496",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804092",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802480",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803274",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806324",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802436",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802583",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803005",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801842",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804352",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804057",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805619",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800887",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804672",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806071",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798811",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805935",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802243",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803941",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798847",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804550",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803542",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805931",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804161",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805051",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805988",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805990",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805932",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802492",
+   "stratum": "idioma_pt",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804800",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803142",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805348",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799145",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806153",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805020",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799835",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803349",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798651",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798787",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803589",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804978",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803151",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805529",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804928",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804475",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806314",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805854",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805581",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804597",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806095",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806236",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805148",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805464",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805630",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803623",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804612",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805096",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799546",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805208",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797339",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805595",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802044",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803484",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805420",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804526",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805970",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804406",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797725",
+   "stratum": "senal_seo",
+   "split": "dev"
+  }
+ ]
+}

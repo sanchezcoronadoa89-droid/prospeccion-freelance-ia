@@ -1,0 +1,1208 @@
+{
+ "version": "v2",
+ "seed": 20261106,
+ "rubric": "rubrica_v2.md",
+ "min_days_between_passes": 7,
+ "items": [
+  {
+   "source": "freelancer",
+   "external_id": "40804758",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804093",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803657",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805902",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798003",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803447",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802492",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804895",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801271",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801033",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799608",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804461",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805485",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804903",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805148",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798684",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803298",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802622",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806349",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803937",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805377",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804835",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804923",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805910",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798998",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802675",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803506",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801545",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802090",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804328",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802737",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801918",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802579",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805174",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801831",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804313",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806236",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801736",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806318",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801484",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805037",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803651",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805595",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804352",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803099",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801813",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801853",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800544",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805905",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801396",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802119",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40797484",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803915",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800747",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805278",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804234",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802371",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799529",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802404",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801842",
+   "stratum": "idioma_pt",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802384",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803114",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805570",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806051",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801239",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801532",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802107",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803505",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801195",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799492",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800055",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803767",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805364",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799531",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799730",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806038",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801934",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799131",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800725",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801297",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802040",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803034",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804896",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803424",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805105",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803827",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804382",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804801",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800973",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802967",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805237",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799375",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803151",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804284",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805420",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804543",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804848",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801828",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800327",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805368",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805559",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800501",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801312",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799337",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803623",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805450",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803120",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803626",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803467",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803496",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802956",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800763",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801700",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805195",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801483",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40796939",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800813",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804926",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806335",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800877",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799226",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804597",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802936",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805589",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805401",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806057",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798324",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804728",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801292",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804783",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798908",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804526",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800460",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804800",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805199",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804550",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800165",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800769",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799591",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801299",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802048",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805741",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40793840",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803753",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805583",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802024",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799744",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806302",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805666",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803912",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801766",
+   "stratum": "idioma_pt",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803794",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802436",
+   "stratum": "senal_web",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800273",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804187",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799756",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801319",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803803",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801919",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804808",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802319",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805059",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804703",
+   "stratum": "sin_senal",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800887",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40800252",
+   "stratum": "senal_marketing",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798811",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805421",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804040",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799396",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799370",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799446",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801179",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804571",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803075",
+   "stratum": "idioma_es",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804535",
+   "stratum": "senal_web",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806047",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799338",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806296",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799607",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804582",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803494",
+   "stratum": "senal_seo",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802649",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802846",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804027",
+   "stratum": "idioma_es",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40806219",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799278",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803576",
+   "stratum": "sin_senal",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802228",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801745",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804400",
+   "stratum": "senal_marketing",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40802285",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803894",
+   "stratum": "senal_ia",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804005",
+   "stratum": "senal_ux",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804999",
+   "stratum": "senal_ux",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40805560",
+   "stratum": "negativo_dificil",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40801938",
+   "stratum": "senal_seo",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40798935",
+   "stratum": "negativo_dificil",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40804256",
+   "stratum": "idioma_pt",
+   "split": "dev"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40803854",
+   "stratum": "senal_ia",
+   "split": "test"
+  },
+  {
+   "source": "freelancer",
+   "external_id": "40799244",
+   "stratum": "senal_seo",
+   "split": "dev"
+  }
+ ]
+}

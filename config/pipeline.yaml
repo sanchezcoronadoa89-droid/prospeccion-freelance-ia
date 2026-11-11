@@ -1,0 +1,5 @@
+# Parametros del pipeline con LLM. Valores iniciales, a recalibrar con los evals.
+max_cost_per_run_usd: 3.0     # La ejecucion se detiene al alcanzar el tope
+batch_size: 20
+description_max_chars: 1500
+relevance_threshold: 0.5      # Desde aqui, un proyecto pasa al rating y a las fases siguientes

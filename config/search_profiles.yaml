@@ -1,0 +1,61 @@
+# Criterios por fuente (RF-FUE-02). Cada cambio crea una version nueva (RF-FUE-04).
+# Valores iniciales, a recalibrar con las primeras corridas.
+profiles:
+  freelancer:
+    categories: [marketing, seo, ia_automatizacion, web_simple, ux_ui]
+    # Skills oficiales de Freelancer (endpoint /projects/0.1/jobs/). Se combinan con O.
+    job_names:
+      # Analitica y medicion
+      - Google Analytics
+      - Website Analytics
+      - Google Data Studio
+      - Looker Studio
+      - Facebook Pixel
+      - Conversion Rate Optimization
+      # Publicidad y marketing
+      - Google Ads
+      - Facebook Ads
+      - PPC Marketing
+      - Search Engine Marketing
+      - Digital Marketing
+      - Email Marketing
+      - Email Campaign
+      - Content Marketing
+      - Marketing Strategy
+      # SEO
+      - SEO
+      - SEO Auditing
+      - Keyword Research
+      - Link Building
+      # IA y automatizacion
+      - AI Chatbot
+      - Chatbot
+      - AI Automation
+      - Workflow Automation
+      - AI Workflow Automation
+      - n8n
+      - Zapier
+      - Make.com
+      - ChatGPT
+      # Web simple y UX/UI
+      - Landing Pages
+      - WordPress
+      - Shopify
+      - UX / User Experience
+      - UI / User Interface
+      - Figma
+    # Las skills no dependen del idioma; estas palabras cubren textos en espanol y portugues.
+    include_keywords:
+      - diseño web
+      - posicionamiento seo
+      - marketing digital
+      - analítica web
+      # "design de site" se quito el 11 nov 2026: 1.395 resultados, sobre todo ruido.
+      - otimização seo
+    exclude_keywords: [data entry]
+    languages: [es, en, pt]
+    min_budget_usd: 100
+    max_age_days: 14
+    # 13 paginas de 50 cubren la busqueda mas grande medida (611 proyectos). Con 5, la cobertura fue del 49,8 %.
+    max_pages: 13
+    page_size: 50

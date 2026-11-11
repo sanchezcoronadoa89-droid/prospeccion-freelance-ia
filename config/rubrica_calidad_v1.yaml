@@ -1,0 +1,17 @@
+# Rubrica de calidad de posts (RF-RAT-01, RF-RAT-03). Cada rating guarda esta version.
+# El agente puntua cada criterio de 0 a 5; el codigo calcula la nota de 0 a 100.
+version: rubrica-v1
+weights:
+  scope: 35
+  deliverables: 30
+  budget: 20
+  timeline: 15
+penalties:
+  free_work: 15
+  off_platform: 15
+# Las señales del cliente (pago verificado, historial) quedan fuera hasta que el conector las obtenga.
+# Rating de fuentes (RF-RAT-02): pesos sobre componentes de 0 a 1.
+source_weights:
+  relevant_share: 40
+  mean_quality: 40
+  ingest_success: 20

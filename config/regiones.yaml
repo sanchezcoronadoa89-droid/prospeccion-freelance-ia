@@ -1,0 +1,10 @@
+# Region por codigo de pais ISO 3166-1 alfa-2. Lo que no aparece aqui cuenta como "Otra".
+# Ojo: en YAML, NO (Noruega) sin comillas se lee como falso; va entre comillas.
+# La API usa EU para el euro y UK (no GB) para la libra en el pais de la moneda.
+Latinoamérica: [AR, BO, BR, CL, CO, CR, CU, DO, EC, GT, HN, MX, NI, PA, PE, PR, PY, SV, UY, VE]
+Norteamérica: [US, CA]
+Europa: [EU, UK, AT, BE, BG, CH, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IS, IT, LT, LU, LV, MT, NL, "NO", PL, PT, RO, RS, SE, SI, SK, UA]
+Oriente Medio: [AE, BH, IL, IQ, JO, KW, LB, OM, QA, SA, TR]
+Asia: [BD, CN, HK, ID, IN, JP, KH, KR, LK, MM, MY, NP, PH, PK, SG, TH, TW, VN]
+Oceanía: [AU, FJ, NZ, PG]
+África: [DZ, EG, ET, GH, KE, MA, NG, RW, SN, TN, TZ, UG, ZA]
